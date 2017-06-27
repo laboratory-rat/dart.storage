@@ -1,8 +1,9 @@
 name: lab_rat_storage
-version: 1.0.1
+version: 1.0.3
 description: simple package for session work
 author: Laboratory Rat <Oleg.Timofeev20@gmail.com>
 homepage: https://github.com/laboratory-rat/dart.storage
 enviroent: 
     sdk: ">=1.24.0 < 2.0.0"
+
 

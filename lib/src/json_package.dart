@@ -23,4 +23,5 @@ class JsonPackage<T extends JsonObject> extends JsonObject{
             inner.add(im.reflectee..fromJson(i));
         });
     }
+
 }
