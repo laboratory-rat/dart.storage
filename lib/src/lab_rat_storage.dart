@@ -8,26 +8,26 @@ class LabRatStorage{
     String fullKey(String key) => prefix != '' ? "$prefix-$key" : key;
 
     LabRatStorage({this.type, this.prefix = ""});
-    LabRatStorage.Clone(LabRatStorage store){
+    LabRatStorage.clone(LabRatStorage store){
         type = store.type;
         prefix = store.prefix;
     }
 
-    void Save<T>(String key, T object)
+    void save<T>(String key, T object)
     {
         var data = JSON.encode(object);
-        Storage store = _GetStore();
+        Storage store = _getStore();
         store[fullKey(key)] = data;
     }
 
-    T Load<T>(String key)
+    T load<T>(String key)
     {
-        Storage store = _GetStore();
+        Storage store = _getStore();
         if(!store.containsKey(fullKey(key))) return null;
         return JSON.decode(store[fullKey(key)]);
     }
 
-    Storage _GetStore()
+    Storage _getStore()
     {
         switch(type){
             case LabRatStorageType.Local:
