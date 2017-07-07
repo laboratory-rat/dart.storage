@@ -4,12 +4,19 @@ import "dart:mirrors";
 class JsonPackage<T extends JsonObject> extends JsonObject{
     List<T> inner;
     int _time;
+    int _expired = -1;
 
     DateTime get time => _time.isNaN ? null : new DateTime.fromMicrosecondsSinceEpoch(_time);
     set time(DateTime t) { _time = t.millisecondsSinceEpoch; }
 
-    JsonPackage({this.inner, DateTime time = null})
+    DateTime get expired => _expired < 0 ? null : new DateTime.fromMicrosecondsSinceEpoch(_expired);
+    set expired(DateTime t) { _expired = t.millisecondsSinceEpoch; }
+
+    bool get isExpired => _expired < 1 ? false : new DateTime.now().millisecondsSinceEpoch >= expired.millisecondsSinceEpoch; 
+
+    JsonPackage(List<T> inner, [DateTime time, DateTime expired])
     {
+        this.inner = inner;
         time == null ? this.time = new DateTime.now() : this.time = time; 
     }
 

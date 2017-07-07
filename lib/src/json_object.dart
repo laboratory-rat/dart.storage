@@ -1,6 +1,18 @@
+import 'dart:convert';
 import 'dart:mirrors';
 
 abstract class JsonObject{
+
+    JsonObject();
+
+    JsonObject.parseString(String target){
+        fromJsonString(target);
+    }
+
+    JsonObject.parse(Map target){
+        fromJson(target);
+    }
+
     Map toJson() { 
         Map map = new Map();
         InstanceMirror im = reflect(this);
@@ -15,5 +27,7 @@ abstract class JsonObject{
         return map;
     }
 
-    void fromJson(dynamic target);
+    void fromJsonString(String target) => fromJson(JSON.decode(target));
+    void fromJson(Map target);
+
 }
