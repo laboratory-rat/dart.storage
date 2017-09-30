@@ -1,1 +1,1 @@
-enum LabRatStorageType { Local, Session }
+enum LRStorageType { Local, Session }

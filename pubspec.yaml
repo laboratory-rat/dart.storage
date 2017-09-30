@@ -1,9 +1,10 @@
-    name: lab_rat_storage
-    version: 1.0.8
-    description: Simple package for work with session storage and local storage. Allow to JSON.encode / JSON.decode
-    author: Laboratory Rat <Oleg.Timofeev20@gmail.com>
-    homepage: https://github.com/laboratory-rat/dart.storage
-    enviroent: 
-        sdk: ">=1.24.0 < 2.0.0"
+name: lr_storage
+version: 1.1.0
+description: Simple package for work with session storage and local storage. Allow to JSON.encode / JSON.decode
+author: Laboratory Rat <Oleg.Timofeev20@gmail.com>
+homepage: https://github.com/laboratory-rat/dart.storage
+enviroent: 
+    sdk: "^2.0.0"
 
-
+dev_dependencies:
+    test: '^0.12.24'
