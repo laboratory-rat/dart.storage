@@ -29,8 +29,20 @@ abstract class JsonObject {
   void fromJsonString(String target) => fromJson(JSON.decode(target));
   void fromJson(Map target);
 
+  static List<T> parseJJ<T extends JsonObject>(String json) {
+    var parsed = JSON.decode(json);
+  }
+
   static List parseList<T extends JsonObject>(String json) {
     var parsed = JSON.decode(json);
-    return parsed.map((x) => (T as JsonObject).fromJson(x)).toList();
+    var result = [];
+    
+    parsed.forEach((x) {
+      var typeMirror = (reflectType(T.runtimeType) as ClassMirror);
+      var l = typeMirror.newInstance(const Symbol(''), []).reflectee;
+      result.add(l.fromJson(x));
+    });
+
+    return result;
   }
 }
