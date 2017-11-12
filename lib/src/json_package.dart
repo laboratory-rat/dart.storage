@@ -1,3 +1,5 @@
+@MirrorsUsed(targets: JsonPackage)
+
 import 'json_object.dart';
 import "dart:mirrors";
 
@@ -18,7 +20,7 @@ class JsonPackage<T extends JsonObject> extends JsonObject {
 
   bool get isExpired => _expired < 1 ? false : new DateTime.now().millisecondsSinceEpoch >= expired.millisecondsSinceEpoch;
 
-  JsonPackage(this.inner, [DateTime expiredIn, DateTime timeIn]) {
+  JsonPackage(this.inner, [DateTime expiredIn = null, DateTime timeIn = null]) {
     timeIn == null ? this.time = new DateTime.now() : this.time = timeIn;
     expired = expiredIn;
 

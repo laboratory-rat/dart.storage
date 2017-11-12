@@ -1,4 +1,4 @@
-import 'dart:convert';
+import 'dart:convert' show JSON;
 import 'dart:html';
 import 'enums.dart';
 

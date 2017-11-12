@@ -1,3 +1,5 @@
+@MirrorsUsed(targets: JsonObject)
+
 import 'dart:convert';
 import 'dart:mirrors';
 
