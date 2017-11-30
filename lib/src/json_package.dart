@@ -1,8 +1,5 @@
 import 'json_object.dart';
 
-// @MirrorsUsed(targets: 'JsonPackage', override: '*')
-import "dart:mirrors";
-
 class JsonPackage<T extends JsonObject> extends JsonObject {
   List<T> inner;
   int _time;
@@ -32,11 +29,11 @@ class JsonPackage<T extends JsonObject> extends JsonObject {
   @override
   void fromMap(target) {
     _time = target['_time'];
+    _expired= target['_expired'];
+    
     inner = [];
     target['inner'].forEach((i) {
-      ClassMirror c = reflectClass(T);
-      InstanceMirror im = c.newInstance(const Symbol(''), []);
-      inner.add(im.reflectee..fromMap(i));
+      inner.add(i.fromMap());
     });
   }
   @override

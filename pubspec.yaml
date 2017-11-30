@@ -1,5 +1,5 @@
 name: lr_storage
-version: 1.1.25
+version: 1.1.26
 description: Simple package for work with session storage and local storage. Allow to JSON.encode / JSON.decode
 author: Laboratory Rat <Oleg.Timofeev20@gmail.com>
 homepage: https://github.com/laboratory-rat/dart.storage
